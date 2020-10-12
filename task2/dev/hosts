@@ -1,0 +1,10 @@
+[web]
+# 54.87.30.11  ansible_user=ec2-user
+54.82.198.248   ansible_user=centos
+
+[db]
+# 35.168.36.189  ansible_user=ubuntu
+
+[other]
+# 54.82.187.74     ansible_user=ec2-user
+# 54.196.237.108   ansible_user=ec2-user

@@ -1,0 +1,9 @@
+- name: Disable SELinux
+  selinux:
+    state: disabled
+- name: Perminantly disable
+  lineinfile:
+    path: /etc/sysconfig/selinux
+    regexp: '^SELINUX=enforcing'
+    line: 'SELINUX=disabled'
+    

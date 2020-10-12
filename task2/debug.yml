@@ -1,0 +1,5 @@
+- hosts: web
+  tasks:
+  - debug: 
+      msg: "Debug module"
+      
