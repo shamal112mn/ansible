@@ -22,12 +22,15 @@ $ git commit -m "first commit"
 copy URL link from github
 
 $ git remote add origin remote <URL link>
+  
 #Sets the new remote
 
-$ git remote -v
+$ git remote -v 
+
 #Verifies the new remote URL
 
 $ git push -u origin main
+
 #Pushes the changes in your local repository up to the remote 
 #repository you specified as the origin
 
