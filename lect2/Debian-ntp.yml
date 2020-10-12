@@ -1,0 +1,24 @@
+- name: Install ntp
+  apt:
+    name: "{{ service_name }}"
+    update_cache: yes
+
+- name: Reconfigure time servers
+  lineinfile:
+    path: /etc/ntp.conf
+    regexp: "^pool.*iburst$"
+    line: "pool pool.ntp.org iburst"
+  notify: Restart "{{ service_name }}"
+
+- name: Delete unused time servers
+  lineinfile:
+    path: /etc/ntp.conf
+    regexp: "^pool [0,1,2,3].*iburst$"      
+    state: absent
+    backup: yes
+  notify: Restart "{{ service_name }}"
+ 
+
+
+# move block of line -> command + [ 
+

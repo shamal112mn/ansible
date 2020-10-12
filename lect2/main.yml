@@ -1,0 +1,8 @@
+- hosts: all
+  handlers:
+  - name: Restart "{{ service_name }}"
+    service:
+      name: "{{ service_name }}"
+      state: restarted 
+  tasks:
+  - include_tasks: "{{ ansible_os_family }}-{{ service_name }}.yml"

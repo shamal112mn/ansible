@@ -1,0 +1,11 @@
+- hosts: web 
+  vars:
+    param1: "Class"
+  tasks:
+  - name: Debug
+    debug:
+      msg: "Hello {{ param1 }}!"
+
+
+# Variable presedence
+# apb -e "param1=Peter" debug.yml -> # it will overide <Class> value with <Peter>

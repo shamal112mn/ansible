@@ -1,0 +1,23 @@
+- hosts: web
+  tasks:
+  - name: Restart all services
+    shell: echo "Restarting all services"
+    notify: restart-all  # first option generic to triger via <listen> on handler
+  # - Restart sshd  # second option triger spesific handler
+  # - Restart ntpd
+
+  handlers:
+  - name: Restart sshd
+    service:
+      name: sshd
+      state: restarted
+      enabled: yes
+    listen: "restart-all"
+
+  - name: Restart ntpd
+    service:
+      name: ntpd
+      state: restarted
+      enabled: yes
+    listen: "restart-all"
+
