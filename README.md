@@ -22,7 +22,7 @@ $ git commit -m "first commit"
 copy URL link from github
 
 $ git remote add origin remote <URL link>
-# Sets the new remote
+#Sets the new remote
 
 $ git remote -v
 #Verifies the new remote URL
