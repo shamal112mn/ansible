@@ -1,0 +1,14 @@
+- name: Install apache Ubuntu18.04
+  apt:
+    name: apache2
+    state: latest
+- name: Start apache
+  systemd:
+    name: apache2
+    state: started
+- name: Enable apache
+  systemd:
+    name: apache2
+    enabled: yes
+    masked: no
+    
