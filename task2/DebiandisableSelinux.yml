@@ -1,2 +1,3 @@
-- name: No SELinux
-  
+- name: Skip Selinux on ubuntu
+  shell: echo "Selinux was not uphdated"       
+    

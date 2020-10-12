@@ -1,6 +1,6 @@
-- name: Disable SELinux
-  selinux:
-    state: disabled
+- selinux:
+    policy: targeted
+    state: permissive
 - name: Perminantly disable
   lineinfile:
     path: /etc/sysconfig/selinux

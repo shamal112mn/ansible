@@ -1,0 +1,15 @@
+- name: Install apache Ubuntu18.04
+  package:
+    name: "{{apache_service}}"
+    update_cache: yes
+    state: latest
+- name: Start "{{apache_service}}"
+  systemd:
+    name: "{{apache_service}}"
+    state: started
+- name: Enable apache
+  systemd:
+    name: "{{apache_service}}"
+    enabled: yes
+    masked: no
+    

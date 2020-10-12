@@ -1,0 +1,16 @@
+- name: Download template for Ubuntußß
+  get_url: 
+    url: https://www.free-css.com/assets/files/free-css-templates/download/page256/central.zip
+    dest: /var/www/html 
+- name: unzip
+  package:
+    name: unzip
+    state: latest
+- name: unzip file
+  unarchive: 
+    src: /var/www/html/central.zip
+    dest: /var/www/html
+    remote_src: yes
+- name: Move files
+  shell: mv /var/www/html/2103_central/*  /var/www/html/
+  

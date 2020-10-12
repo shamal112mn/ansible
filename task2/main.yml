@@ -1,11 +1,9 @@
-- hosts: web
+- hosts: all 
   tasks:
   - name: Install apache
-    include_tasks: "{{ ansible_os_family }}Apache.yml"
+    include_tasks:  apache.yml
   - name: Download Template
-    include_tasks: "{{ ansible_os_family }}downloadTemplate.yml"
-  - name: Change ownership to apache
-    shell: sudo chown -R apache:apache /var/www/html
+    include_tasks: downloadTemplate.yml 
   - name: Disable SELinux
     include_tasks: "{{ ansible_os_family }}disableSelinux.yml"
     
