@@ -1,0 +1,4 @@
+php_version: "7.3"
+local_mysql: true
+mysql_user: "wpuser"
+mysql_password: "password"
