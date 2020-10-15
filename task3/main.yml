@@ -1,0 +1,16 @@
+- hosts: web
+  tasks:
+  - name: Install Git and Python3
+    include_tasks: gitAndPython3.yml
+
+  - name: Install Apache
+    include_tasks: apache.yml
+
+  - name: Install pip
+    include_tasks: pip.yml
+
+  - name: Clone and move
+    include_tasks: gitCloneAndMove.yml
+
+  - name: run my script!
+    command: python app.py chdir=/var/www/html

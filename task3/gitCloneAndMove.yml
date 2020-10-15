@@ -1,0 +1,14 @@
+- name: Git clone repo
+  git:
+    repo: https://github.com/anfederico/Flaskex 
+    dest: /home/centos/Flaskex
+    separate_git_dir: /home/centos/ansible-examples.git
+
+- name: CD to Flaskex
+  command: pip install -r requirements.txt  chdir=/home/centos/Flaskex
+
+- name: move to /html
+  shell: rsync -r /home/centos/Flaskex/*  /var/www/html
+
+- name: run my script!
+  command: python app.py chdir=/var/www/html
