@@ -7,5 +7,5 @@
 - name: CD to Flaskex
   command: pip install -r requirements.txt  chdir=/home/centos/Flaskex
 
-- name: move to /html
-  shell: rsync -r /home/centos/Flaskex/*  /var/www/html
+# - name: move to /html
+#   shell: rsync -r /home/centos/Flaskex/*  /var/www/html
