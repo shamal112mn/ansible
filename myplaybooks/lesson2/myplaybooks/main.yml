@@ -1,0 +1,12 @@
+- hosts: all
+  handlers:
+  - name: Redhat restart ntpd
+    service:
+      name: ntpd
+      state: restarted
+  - name: Debian restart ntpd
+    service:
+      name: ntp
+      state: restarted
+  tasks:
+  - include_tasks: "{{ ansible_os_family }}-ntpd.yml"

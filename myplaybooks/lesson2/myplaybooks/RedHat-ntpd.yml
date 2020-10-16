@@ -1,0 +1,19 @@
+- name: Install ntpd
+  yum: 
+    name: ntp
+    state: latest
+
+- name: Reconfigure time servers
+  lineinfile:
+    path: /etc/ntp.conf
+    regexp: '^server.*iburst$'
+    line: 'server pool.ntp.org iburst'
+  notify: Redhat restart ntpd
+
+- name: Delete unused time servers
+  lineinfile:
+    path: /etc/ntp.conf
+    regexp: "^server [0,1,2,3].*iburst$"
+    state: absent
+    backup: yes
+  notify: Redhat restart ntpd

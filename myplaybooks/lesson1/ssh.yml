@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+  - name: Install ssh key
+    authorized_key:
+      user: ec2-user
+      state: present
+      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDafv4N9pm2djQg/cvX+BDMFsqRGiOnWViCPA6TL4Xv/yStAPCi/vJ5hFvDjAaEmf1MZug1dHUazaQ/bUEi/tzBVAKKrKMe7LH3cpNaB4Ie59LF2we4hE2kOpQ7K/yWm4t4RYwPSHdroBSQU4aE59kIe8tY0pI7scIkgx7lQPWewj1hsPXV8N+aTUQKg70wtsO4VYG0JR+bcBW3b/65H0cjwledxqJQLsCZFJvFfBDqOKZEOaecQEBTr7lYr9tbqG9mZtnO09lyniSdA0fidLcodKAuARhwIxgaiaKyz6aZOUf+la59zYoLx0K+xM6bNmw165sunCuPUMUaBplcnn4jMh5VPJRhYbzHXXI3lX+yFBf0Fp3COOxmqwB2jTqfbKHrmHLXhdCQCBW+OLapOtEuwBJ4e90DxNguKsr8Mb4MKlE6i3Z3zdfFOkVxPmGOvkdd1KJapPd2LiL67xr65TqsPmBetpqP9CFJBi64YQJcgpjLHhTMprSUgId4fE/90H0= azatmurataliev@Azats-MBP"
+      

@@ -1,0 +1,49 @@
+- hosts: web   
+  tasks:
+  - name: Install apache httpd
+    yum:
+      name: httpd
+      state: latest
+  - name: Start apache
+    systemd:
+      name: httpd
+      state: started
+  - name: Enable apache
+    systemd:
+      name: httpd
+      enabled: yes
+      masked: no 
+- hosts: web
+  tasks:
+  - name: Download template
+    get_url: 
+      url: https://www.free-css.com/assets/files/free-css-templates/download/page256/central.zip
+      dest: /var/www/html
+- hosts: web
+  tasks:
+  - name: unzip
+    yum:
+      name: unzip
+      state: latest
+  - name: unzip file
+    unarchive: 
+      src: /var/www/html/central.zip
+      dest: /var/www/html
+      remote_src: yes
+- hosts: web
+  tasks: 
+  - name: Move files
+    shell: mv /var/www/html/2103_central/*  /var/www/html/
+- hosts: web
+  tasks:
+  - name: Change ownership to apache
+    shell: chown apache:apache /var/www/html/*
+    
+
+    
+
+
+
+
+
+
