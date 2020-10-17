@@ -1,0 +1,7 @@
+- name: Git clone repo
+  git:
+    repo: https://github.com/anfederico/Flaskex 
+    dest: /home/centos/Flaskex   
+
+- name: Install requirements.txt
+  command: pip install -r requirements.txt  chdir=/home/centos/Flaskex

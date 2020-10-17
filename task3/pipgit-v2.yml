@@ -1,0 +1,8 @@
+- name: install git, pip
+  yum:
+    name:
+    - git
+    - python-pip
+  
+- name: upgrade pip
+  shell: pip install --upgrade pip

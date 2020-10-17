@@ -1,0 +1,12 @@
+- name: Download pip installation file and setup
+  shell: curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+  args: 
+    creates: get-pip.py
+
+- name: Install pip
+  command: python get-pip.py
+
+- name: install the package, force upgrade
+  pip: 
+    name: setuptools
+    state: latest

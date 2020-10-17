@@ -1,0 +1,15 @@
+- name: Install py36
+  yum:
+    name: 
+     - https://repo.ius.io/ius-release-el7.rpm
+- name: install pkgs
+  yum:
+    name:    
+    - python36u 
+    - python36u-libs
+    - python36u-devel
+    - python36u-pip
+
+
+
+   

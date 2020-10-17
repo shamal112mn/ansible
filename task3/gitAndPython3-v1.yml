@@ -1,0 +1,12 @@
+- name: Install Git and python3
+  yum:
+    name: 
+    - git
+    - python3    
+
+- name: upgrade all packages
+  yum: name=*  state=latest
+
+
+
+   
