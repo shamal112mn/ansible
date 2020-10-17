@@ -1,0 +1,38 @@
+- hosts: all
+  tasks:
+  - name: Update hostname
+    import_role:
+      name: ansible-role-hostname
+    vars:
+      server_name: "{{ inventory_hostname }}"
+
+  # - name: Disable SELinux
+  #   selinux:
+  #     state: disabled
+
+  - name: Install prereq
+    import_role:
+      name: ansible-role-prereq
+
+  - name: Install python
+    import_role:
+      name: ansible-role-python
+
+  - include_tasks: "{{ ansible_os_family }}-clone-Flaskex.yml"
+
+  - name: Install requirements.txt
+    command: pip3 install -r requirements.txt  chdir=Flaskex
+  
+  - name: change ownership of /Flaskex
+    file:
+      path: /home/ubuntu/Flaskex/
+      state: directory
+      recurse: yes
+      owner: ubuntu 
+      group: ubuntu  
+    when: ansible_os_family == 'Debian'
+
+  - name: Run app!    
+    shell: 'nohup python3 Flaskex/app.py &'
+
+  

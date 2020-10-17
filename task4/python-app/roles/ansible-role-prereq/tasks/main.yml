@@ -1,0 +1,10 @@
+---
+- name: Install prerequisites
+  package:
+    name:
+    - git
+    - vim
+    - wget
+    - unzip
+    state: latest
+    
