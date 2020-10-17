@@ -9,11 +9,12 @@ Use:
 
 - Roles 
 
-Roles 
-	• -  Prerequisites 
-o Installs vim, wget, git, unzip 
-	• -  Python 
+Roles:
+
+	• -  Prerequisites   o Installs vim, wget, git, unzip 
+
+	• -  Python o Installs either python2, pip2 or python3, pip3
+
     
-o Installs either python2, pip2 or python3, pip3
 Roles should be generic, and should work on both CentOS and Ubuntu 
 
