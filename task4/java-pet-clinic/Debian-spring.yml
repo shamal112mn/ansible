@@ -1,0 +1,29 @@
+  - name:
+    package:
+      name:
+        - vim
+        - wget
+        - vim
+        - unzip
+      state: latest
+
+  - name: Update hostname
+    import_role:
+      name:  Debian-spring-hostname
+    vars:
+      server_name: "{{ inventory_hostname }}"
+
+  - name: install apache
+    import_role: 
+      name: Debian-spring-apache
+   
+
+  - name: Install git
+    import_role:
+      name: Debian-spring-git
+  
+  - name: Install java
+    import_role:
+      name: Debian-spring-java
+   
+  

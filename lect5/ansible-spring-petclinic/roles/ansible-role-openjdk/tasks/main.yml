@@ -1,0 +1,19 @@
+---
+- name: Install OpenJDK centos
+  package:
+    name:
+    - "java-{{ open_jdk_version }}-openjdk"
+    - maven
+  when: ansible_os_family == 'RedHat'
+
+- name: Install OpenJDK for ubuntu
+  package:
+    name: 
+    - openjdk-8-jdk
+    - maven
+    force_apt_get: yes
+    update_cache: yes
+  when: ansible_os_family == 'Debian' 
+
+
+

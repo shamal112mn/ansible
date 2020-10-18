@@ -1,0 +1,29 @@
+- hosts: all
+  tasks:
+  - name: Install Prerequisites
+    import_role:
+      name: ansible-role-prerequisites
+
+  - name: Install OpenJDK
+    import_role:
+      name: ansible-role-openjdk
+
+  - name: Clone Repo
+    git:
+      repo: https://github.com/ikambarov/spring-petclinic.git
+      dest: /spring
+      force: yes
+
+  - name: Run Maven Wrapper
+    shell: "./mvnw package"
+    args:      
+      creates: /spring/target/*.jar
+     
+
+  - name: Start App
+    shell: 'nohup java -jar target/*.jar &'  
+    args:
+      chdir: /spring
+
+  # 'pkill java && nohup java -jar target/*.jar &' 
+
