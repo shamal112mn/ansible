@@ -1,0 +1,62 @@
+- hosts: web   # for centos7
+  tasks:
+  - name: Install apache httpd
+    yum:
+      name: httpd
+      state: latest
+  - name: Start apache
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+    notify: Restart httpd
+
+  
+  - name: Download template
+    get_url: 
+      url: https://www.free-css.com/assets/files/free-css-templates/download/page259/vanilla.zip
+      dest: ~/
+
+  - name: unzip
+    yum:
+      name: unzip
+      state: latest
+
+  - name: unzip file
+    unarchive: 
+      src: ~/vanilla.zip
+      dest: ~/
+      remote_src: yes
+
+  - name: Clean html folder
+    file:
+      path: /var/www/html/
+      state: absent
+    
+    
+  - name: Move files
+    command: mv  /root/templatemo_526_vanilla/  /var/www/html/   
+    
+       
+
+  - name: Change ownership to apache
+    file:
+      path: /var/www/html/
+      owner: apache
+      group: apache
+      mode: '0777'
+     
+    
+  handlers:
+  - name: Restart httpd
+    service:
+      name: httpd
+      state: restarted
+      enabled: yes
+    
+
+
+
+
+
+
