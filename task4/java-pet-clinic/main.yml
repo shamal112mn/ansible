@@ -1,7 +1,0 @@
-- hosts: web
-  tasks:
-  - include_tasks: "{{ ansible_os_family }}-spring.yml"
-
-- hosts: db
-  tasks:
-  - include_tasks: "{{ ansible_os_family }}-spring.yml"

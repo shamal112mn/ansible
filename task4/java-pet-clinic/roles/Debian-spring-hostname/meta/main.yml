@@ -1,8 +1,0 @@
-galaxy_info:
-  author: John Oshikoya
-  description: A simple role which updates hostname
-  min_ansible_version: 1.4
-  galaxy_tags:
-    - hostname
-dependencies: []
-
