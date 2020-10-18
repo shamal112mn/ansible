@@ -19,6 +19,7 @@ Roles
 	
 Roles should be generic, and should work on both CentOS and Ubuntu 
 
+**********
 
 
 4b.   Task - Install Spring PetClinic Sample application: 
