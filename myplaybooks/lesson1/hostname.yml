@@ -1,3 +1,0 @@
-- name: Change Hostname
-  hostname:
-    name: web
