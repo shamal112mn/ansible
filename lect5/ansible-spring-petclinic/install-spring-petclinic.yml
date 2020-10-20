@@ -15,15 +15,18 @@
       force: yes
 
   - name: Run Maven Wrapper
-    shell: "./mvnw package"
-    args:      
+    command:  ./mvnw package
+    args:
+      chdir: /spring     
       creates: /spring/target/*.jar
      
 
   - name: Start App
-    shell: 'nohup java -jar target/*.jar &'  
-    args:
-      chdir: /spring
+    shell: "nohup java -jar /spring/target/*.jar &"
+     
+     
 
   # 'pkill java && nohup java -jar target/*.jar &' 
+
+
 
